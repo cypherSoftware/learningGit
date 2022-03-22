@@ -6,6 +6,7 @@ git status (returns status of everyfile in your working directory.)
 git restore --staged <fileOrDirectory> (Un adds a staged file.  Goes back to untracked)
 git status -s gives you short verion. First column is staging area
             second collumn is working tree. A=add ??=untracked M=modified
+git config --list (will list all the config settings. --global --local optional)
 
 NOTES: 
 The top directory of your working directory tree has the .git directory that tracks eveyrhting
