@@ -1,0 +1,20 @@
+MY GIT CHEAT SHEET
+
+
+git clone <pathToRepositoryCanBeHttporSSH> (clones a new repository and starts tracking it)
+git status (returns status of everyfile in your working directory.)
+git restore --staged <fileOrDirectory> (Un adds a staged file.  Goes back to untracked)
+git status -s gives you short verion. First column is staging area
+            second collumn is working tree. A=add ??=untracked M=modified
+
+NOTES: 
+The top directory of your working directory tree has the .git directory that tracks eveyrhting
+ex: ~/aDirectory/MyRepository/adirectoryOfFiles/aSubDirectory
+    if you clone a repositroy into aDirectory and name it MyRepository.
+    MyRepositrory will contain the .git directory
+
+git add and a file name adds that file.  if it's a directory it adds recursively
+And you can add a list of files to add by seperating by spaces.
+
+
+
