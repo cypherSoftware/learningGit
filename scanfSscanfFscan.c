@@ -2,8 +2,10 @@
 #include <stdlib.h>
 int main (int argc, char **argv)
 {
+
 //Basic IO. To open a file need a FILE *ptr also need #inlclude <stdlib.h>
 FILE *afile;
+
 //creates a var named text of 256 chars basically a long string
 char *text = malloc(256); 
 
@@ -24,11 +26,23 @@ if((afile = fopen("IO.txt", "a+")) == NULL)
 printf("Sucessfully opened file for reading and writing mode.\n");
 printf("\nType in your name then hit enter.\n");
 
+char buffer [100];
+//read in first line of file and assign it to text2
+fscanf(afile, "%s", buffer);
+printf("\nJust scanned aFile hopefully and had first string in line added to text2 which is: %s\n", buffer);
+
+
+
 //scanf reads from stdin and accepts whatever user types in as a string when they hit enter.
 //%s read a string in up to first whitespace.
+//with the following line of code...
+//scanf("%s %s", text, text2);
 // if user types Aaron and hits enter Aaron is added to end of file.  if Aaron Posey then enter
 // then Aaron should be added to end of file. If Aaron Posey needs to be appended use "%s %s".
 //%*s means skip one string up to whitespace.  %*d would mean skip an int.
+
+//For the line below if the usr typed   Mr. Aaron Posey   The Mr. would be ignored and Aaron would go
+//to text and Posey would go to text2. 
 scanf("%*s %s %s", text, text2);
 
 
@@ -41,12 +55,15 @@ text2 = "A New String!";
 sscanf(text2, "%*s %s", text);
 printf("\nAfter runnign sscanf the new val of text: %s\n", text);
 
-
+printf("line 51\n");
 //Every file opened needs to be closed!!!!!
+printf("line 58\n");
 fclose(afile);
 
 //Every Malloc needs a free()!!!!
 free(text);
-free(text2);
-    return 0;
+printf("line 63\n");
+//free(text2);
+printf("line 65\n");
+return 0;
 }
