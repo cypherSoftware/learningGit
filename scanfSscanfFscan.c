@@ -49,7 +49,7 @@ scanf("%*s %s %s", text, text2);
 //works like printf but prints to a file named in first parameter in this case afile.
 fprintf(afile,"%s Charles %s",text, text2);
 
-text2 = "A New String!";
+*text2 = "A New String!";
 //sscanf doesn't use stdin but rather a string passed in, then does what scanf does 
 //then places final product into third paramater passed into the function.
 sscanf(text2, "%*s %s", text);
@@ -63,7 +63,7 @@ fclose(afile);
 //Every Malloc needs a free()!!!!
 free(text);
 printf("line 63\n");
-//free(text2);
+free(text2);
 printf("line 65\n");
 return 0;
 }
