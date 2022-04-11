@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
 int main (int argc, char **argv)
 {
 
@@ -24,7 +26,6 @@ if((afile = fopen("IO.txt", "a+")) == NULL)
     exit(1); //kill program
 }
 printf("Sucessfully opened file for reading and writing mode.\n");
-printf("\nType in your name then hit enter.\n");
 
 char buffer [100];
 //read in first line of file and assign it to text2
@@ -43,27 +44,24 @@ printf("\nJust scanned aFile hopefully and had first string in line added to tex
 
 //For the line below if the usr typed   Mr. Aaron Posey   The Mr. would be ignored and Aaron would go
 //to text and Posey would go to text2. 
+printf("\nType in your name then hit enter.\n");
 scanf("%*s %s %s", text, text2);
 
 
 //works like printf but prints to a file named in first parameter in this case afile.
 fprintf(afile,"%s Charles %s",text, text2);
 
-*text2 = "A New String!";
+strcpy(text2, "A New String!");
 //sscanf doesn't use stdin but rather a string passed in, then does what scanf does 
 //then places final product into third paramater passed into the function.
 sscanf(text2, "%*s %s", text);
-printf("\nAfter runnign sscanf the new val of text: %s\n", text);
+printf("\nAfter running sscanf the new val of text: %s Expected: New\n", text);
 
-printf("line 51\n");
 //Every file opened needs to be closed!!!!!
-printf("line 58\n");
 fclose(afile);
 
 //Every Malloc needs a free()!!!!
 free(text);
-printf("line 63\n");
 free(text2);
-printf("line 65\n");
 return 0;
 }
